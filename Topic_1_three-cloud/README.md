@@ -10,10 +10,8 @@
 | Tier | Platform | URL |
 |------|----------|-----|
 | **UI** | Streamlit Community Cloud | https://cst435topic1-3gxcnfplqnumgopreogutc.streamlit.app/#model-card |
-| **API** | Render.com | https://regress-it-api-w388.onrender.com/ |
-| **Data** | Supabase | https://iiydxtkgqwpbcrqvrfyl.supabase.co |
-
-> Replace the placeholders above with your real URLs once deployed.
+| **API** | Render.com | https://regress-it-api-w388.onrender.com/healthz |
+| **Data** | Supabase | https://iiydxtkgqwpbcrqvrfyl.supabase.co | https://supabase.com/dashboard/project/iiydxtkgqwpbcrqvrfyl |
 
 ---
 
@@ -23,6 +21,21 @@ I think a data scientist has a responsibility to be honest with a client about t
 From a Christian worldview, honesty is very important. I believe we should be truthful with people and take responsibility for how we use the information and skills we have. In this situation, that means being honest about what the model can do and where it may not be reliable. Even if the limitations make the model seem less impressive, the client deserves to know the full picture so they can make good decisions.
 
 To me, being a good data scientist is not just about building a model that works. It is also about making sure the model is being used responsibly. Being honest about the limitations of the model helps build trust and shows good stewardship of the data and technology we are working with.
+
+##Decision Justifications
+One of the main design decisions in my project was the learning rate. I tested different learning rates to see how they affected the training process. A learning rate of 0.01 consistently produced a model that converged successfully, with MSE values around 4.13 to 4.44, MAE values around 1.60 to 1.71, and R² values close to 0.98. I also tested a much larger learning rate of 1.5, which caused the model to diverge. The results for that run reached non-finite values, which my application records as 1,000,000 so the run can still be saved and displayed. This showed me how using a learning rate that is too large can make the training unstable.
+
+My stopping criterion was 100 epochs. I used the same number of epochs for each run so that I could compare different learning rates under the same training conditions. This makes it easier to see whether the learning rate is helping the model converge instead of giving one model more training time than another.
+
+For the validation split, I used 20% of the dataset as held-out data, with the other 80% used for training. The model's MSE, MAE, and R² are calculated using the held-out data. This gives a better idea of how the model performs on data that was not used during training instead of only measuring how well it fits the training data.
+
+The run-history table makes these comparisons easier because all of the important information is displayed together. I can compare the learning rate, batch size, epochs, MSE, MAE, and R² for each training run. For example, the table makes it easy to see that the runs using a learning rate of 0.01 converged successfully while the run using 1.5 diverged. This gives a clear visual comparison of how the different training settings affected the model.
+
+##Screenshot showing convergence and divergence
+<img width="2990" height="810" alt="image" src="https://github.com/user-attachments/assets/c406e893-a8e2-43cb-a898-d04a67713039" />
+
+
+
 
 ## What it does
 
