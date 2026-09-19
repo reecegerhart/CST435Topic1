@@ -17,6 +17,13 @@
 
 ---
 
+## Christian Worldview
+I think a data scientist has a responsibility to be honest with a client about the limitations of a regression model. Not every model is going to be perfect, and there can be problems with the data or the way the model makes predictions. Since a non-technical client may not understand those details, it is important to explain them in a way that makes sense instead of just giving them the results and expecting them to understand.
+
+From a Christian worldview, honesty is very important. I believe we should be truthful with people and take responsibility for how we use the information and skills we have. In this situation, that means being honest about what the model can do and where it may not be reliable. Even if the limitations make the model seem less impressive, the client deserves to know the full picture so they can make good decisions.
+
+To me, being a good data scientist is not just about building a model that works. It is also about making sure the model is being used responsibly. Being honest about the limitations of the model helps build trust and shows good stewardship of the data and technology we are working with.
+
 ## What it does
 
 Regress-It is an interactive teaching demo for 1-D linear regression. You pick a
