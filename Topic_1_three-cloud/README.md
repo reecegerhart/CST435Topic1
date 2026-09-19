@@ -9,8 +9,8 @@
 
 | Tier | Platform | URL |
 |------|----------|-----|
-| **UI** | Streamlit Community Cloud | `https://<your-app>.streamlit.app` |
-| **API** | Render.com | `https://<your-api>.onrender.com` |
+| **UI** | Streamlit Community Cloud | https://cst435topic1-3gxcnfplqnumgopreogutc.streamlit.app/#model-card |
+| **API** | Render.com | https://regress-it-api-w388.onrender.com/ |
 | **Data** | Supabase | https://iiydxtkgqwpbcrqvrfyl.supabase.co |
 
 > Replace the placeholders above with your real URLs once deployed.
