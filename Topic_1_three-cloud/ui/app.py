@@ -13,6 +13,8 @@ Configuration comes from st.secrets (see .streamlit/secrets.toml.example):
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 import requests
 import streamlit as st
@@ -176,8 +178,11 @@ with history_tab:
 # ---------------------------------------------------------------------------
 with card_tab:
     st.header("Model Card")
+
+    MODEL_CARD = Path(__file__).resolve().parent.parent / "MODEL_CARD.md"
+
     try:
-        with open("MODEL_CARD.md", "r", encoding="utf-8") as fh:
+        with open(MODEL_CARD, "r", encoding="utf-8") as fh:
             st.markdown(fh.read())
     except FileNotFoundError:
         st.warning("MODEL_CARD.md not found.")
