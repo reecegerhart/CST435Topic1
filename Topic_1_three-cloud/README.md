@@ -11,7 +11,7 @@
 |------|----------|-----|
 | **UI** | Streamlit Community Cloud | https://cst435topic1-3gxcnfplqnumgopreogutc.streamlit.app/#model-card |
 | **API** | Render.com | https://regress-it-api-w388.onrender.com/healthz |
-| **Data** | Supabase | https://iiydxtkgqwpbcrqvrfyl.supabase.co | https://supabase.com/dashboard/project/iiydxtkgqwpbcrqvrfyl |
+| **Data** | Supabase | https://iiydxtkgqwpbcrqvrfyl.supabase.co https://supabase.com/dashboard/project/iiydxtkgqwpbcrqvrfyl |
 
 ---
 
