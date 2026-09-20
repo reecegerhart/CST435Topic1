@@ -15,14 +15,14 @@
 
 ---
 
-## Christian Worldview
+# Christian Worldview
 I think a data scientist has a responsibility to be honest with a client about the limitations of a regression model. Not every model is going to be perfect, and there can be problems with the data or the way the model makes predictions. Since a non-technical client may not understand those details, it is important to explain them in a way that makes sense instead of just giving them the results and expecting them to understand.
 
 From a Christian worldview, honesty is very important. I believe we should be truthful with people and take responsibility for how we use the information and skills we have. In this situation, that means being honest about what the model can do and where it may not be reliable. Even if the limitations make the model seem less impressive, the client deserves to know the full picture so they can make good decisions.
 
 To me, being a good data scientist is not just about building a model that works. It is also about making sure the model is being used responsibly. Being honest about the limitations of the model helps build trust and shows good stewardship of the data and technology we are working with.
 
-##Decision Justifications
+# Decision Justifications
 One of the main design decisions in my project was the learning rate. I tested different learning rates to see how they affected the training process. A learning rate of 0.01 consistently produced a model that converged successfully, with MSE values around 4.13 to 4.44, MAE values around 1.60 to 1.71, and R² values close to 0.98. I also tested a much larger learning rate of 1.5, which caused the model to diverge. The results for that run reached non-finite values, which my application records as 1,000,000 so the run can still be saved and displayed. This showed me how using a learning rate that is too large can make the training unstable.
 
 My stopping criterion was 100 epochs. I used the same number of epochs for each run so that I could compare different learning rates under the same training conditions. This makes it easier to see whether the learning rate is helping the model converge instead of giving one model more training time than another.
@@ -31,8 +31,27 @@ For the validation split, I used 20% of the dataset as held-out data, with the o
 
 The run-history table makes these comparisons easier because all of the important information is displayed together. I can compare the learning rate, batch size, epochs, MSE, MAE, and R² for each training run. For example, the table makes it easy to see that the runs using a learning rate of 0.01 converged successfully while the run using 1.5 diverged. This gives a clear visual comparison of how the different training settings affected the model.
 
-##Screenshot showing convergence and divergence
+# Screenshot showing convergence and divergence
 <img width="2990" height="810" alt="image" src="https://github.com/user-attachments/assets/c406e893-a8e2-43cb-a898-d04a67713039" />
+
+# Testing
+
+The project includes automated tests using pytest to verify the API, model training, and database integration.
+
+The test suite includes:
+
+* A request-schema test for the `/predict` endpoint to verify valid prediction requests.
+* A smoke test for `/healthz` to verify that the API and database connection are working.
+* A numerical training test that verifies the trained regression slope is within an expected tolerance of the synthetic ground truth.
+* A Supabase round-trip test that creates a fixture dataset, trains a model using the dataset, and verifies that the training run is saved to the `runs` table.
+
+Running:
+
+```bash
+pytest -q
+```
+
+produced 6 passing tests and 1 skipped test in the local development environment. The skipped test is the live Supabase test when database credentials are not available.
 
 
 
